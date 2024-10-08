@@ -40,35 +40,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(24, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.Size = new System.Drawing.Size(130, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "当前活动：";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 34);
+            this.label2.Location = new System.Drawing.Point(24, 68);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.Size = new System.Drawing.Size(154, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "请粘贴Cookie";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(14, 60);
+            this.textBox1.Location = new System.Drawing.Point(28, 120);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(6);
             this.textBox1.MaxLength = 2000000;
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(622, 254);
+            this.textBox1.Size = new System.Drawing.Size(1240, 504);
             this.textBox1.TabIndex = 2;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 334);
+            this.button1.Location = new System.Drawing.Point(28, 668);
+            this.button1.Margin = new System.Windows.Forms.Padding(6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(622, 23);
+            this.button1.Size = new System.Drawing.Size(1244, 46);
             this.button1.TabIndex = 3;
             this.button1.Text = "自动通关，启动！";
             this.button1.UseVisualStyleBackColor = true;
@@ -76,9 +80,10 @@
             // 
             // qrButton
             // 
-            this.qrButton.Location = new System.Drawing.Point(561, 4);
+            this.qrButton.Location = new System.Drawing.Point(1122, 8);
+            this.qrButton.Margin = new System.Windows.Forms.Padding(6);
             this.qrButton.Name = "qrButton";
-            this.qrButton.Size = new System.Drawing.Size(75, 23);
+            this.qrButton.Size = new System.Drawing.Size(150, 46);
             this.qrButton.TabIndex = 4;
             this.qrButton.Text = "国服二维码登录";
             this.qrButton.UseVisualStyleBackColor = true;
@@ -87,16 +92,18 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(81, 5);
+            this.comboBox1.Location = new System.Drawing.Point(162, 10);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(6);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(474, 20);
+            this.comboBox1.Size = new System.Drawing.Size(944, 32);
             this.comboBox1.TabIndex = 5;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(561, 29);
+            this.button2.Location = new System.Drawing.Point(1122, 58);
+            this.button2.Margin = new System.Windows.Forms.Padding(6);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(150, 46);
             this.button2.TabIndex = 6;
             this.button2.Text = "国际服登录";
             this.button2.UseVisualStyleBackColor = true;
@@ -104,9 +111,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(660, 369);
+            this.ClientSize = new System.Drawing.Size(1320, 738);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.qrButton);
@@ -114,6 +121,9 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "miHoYo H5活动自动通关器";

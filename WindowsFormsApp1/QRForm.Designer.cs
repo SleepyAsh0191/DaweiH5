@@ -37,25 +37,28 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 27);
+            this.label1.Location = new System.Drawing.Point(86, 54);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(251, 12);
+            this.label1.Size = new System.Drawing.Size(502, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "请使用“米游社”或者任意米哈游游戏App扫码";
             // 
             // QRPic
             // 
-            this.QRPic.Location = new System.Drawing.Point(41, 52);
+            this.QRPic.Location = new System.Drawing.Point(82, 104);
+            this.QRPic.Margin = new System.Windows.Forms.Padding(6);
             this.QRPic.Name = "QRPic";
-            this.QRPic.Size = new System.Drawing.Size(250, 250);
+            this.QRPic.Size = new System.Drawing.Size(500, 500);
             this.QRPic.TabIndex = 1;
             this.QRPic.TabStop = false;
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(45, 307);
+            this.refreshButton.Location = new System.Drawing.Point(90, 614);
+            this.refreshButton.Margin = new System.Windows.Forms.Padding(6);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(242, 23);
+            this.refreshButton.Size = new System.Drawing.Size(484, 46);
             this.refreshButton.TabIndex = 2;
             this.refreshButton.Text = "刷新";
             this.refreshButton.UseVisualStyleBackColor = true;
@@ -63,15 +66,18 @@
             // 
             // QRForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 357);
+            this.ClientSize = new System.Drawing.Size(670, 714);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.QRPic);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(6);
+            this.MaximizeBox = false;
             this.Name = "QRForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "QRForm";
+            this.Text = "米游社二维码登录";
             this.Load += new System.EventHandler(this.QRForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.QRPic)).EndInit();
             this.ResumeLayout(false);
