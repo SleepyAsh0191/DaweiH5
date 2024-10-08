@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace DaweiH5
 {
     partial class QRForm
     {

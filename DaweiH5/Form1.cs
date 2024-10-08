@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
 using RestSharp;
 
-namespace WindowsFormsApp1
+namespace DaweiH5
 {
     public partial class Form1 : Form
     {
@@ -221,7 +221,10 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            using (var hoYoLabForm = new HoyoLabForm())
+            {
+                hoYoLabForm.ShowDialog(this);
+            }
         }
     }
 }

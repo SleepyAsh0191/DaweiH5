@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{B0461105-745B-43B8-8D19-DF8CAE17EC21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DaweiH5", "DaweiH5\DaweiH5.csproj", "{B0461105-745B-43B8-8D19-DF8CAE17EC21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

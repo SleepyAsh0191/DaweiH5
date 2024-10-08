@@ -8,7 +8,7 @@ using QRCoder;
 using System.Windows.Forms;
 using System.Linq;
 
-namespace WindowsFormsApp1
+namespace DaweiH5
 {
     public partial class QRForm : Form
     {
