@@ -17,6 +17,7 @@ namespace DaweiH5
         private readonly string qrStatusUrl = "https://passport-api.miyoushe.com/account/ma-cn-passport/web/queryQRLoginStatus";
         private CancellationTokenSource cancellationTokenSource;
         private bool scannedAlertShown = false;
+        private string deviceId = "c0570f46-ced6-4a17-1e51-0682e1c2162a";
 
         public QRForm()
         {
@@ -26,7 +27,12 @@ namespace DaweiH5
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
+            // 取消当前的二维码查询任务
+            cancellationTokenSource.Cancel();
+            cancellationTokenSource = new CancellationTokenSource();
 
+            // 重新加载二维码
+            QRForm_Load(sender, e);
         }
 
         private async void QRForm_Load(object sender, EventArgs e)
@@ -35,8 +41,8 @@ namespace DaweiH5
             {
                 var client = new RestClient(qrLoginUrl);
                 var request = new RestRequest(qrLoginUrl, Method.Post);
-                request.AddHeader("x-rpc-app_id", "cie2gjc0sg00");
-                request.AddHeader("x-rpc-device_id", "c0570f46-ced6-4a17-1e51-0682e1c2162a");
+                request.AddHeader("x-rpc-app_id", "bll8iq97cem8");
+                request.AddHeader("x-rpc-device_id", deviceId);
 
                 // 发送请求
                 var response = await client.ExecuteAsync(request);
@@ -50,7 +56,9 @@ namespace DaweiH5
                 var jsonResponse = JObject.Parse(response.Content);
                 if (jsonResponse["retcode"]?.ToString() != "0")
                 {
-                    MessageBox.Show($"Error: retcode is {jsonResponse["retcode"]}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"错误: {jsonResponse["message"]}\n点击“确认”后会生成一个新的设备码，然后重新点击“刷新”即可恢复正常", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //重新生成uuid
+                    deviceId = Guid.NewGuid().ToString();
                     return;
                 }
 
@@ -95,8 +103,8 @@ namespace DaweiH5
                 {
                     var request = new RestRequest(qrStatusUrl, Method.Post);
                     request.AddHeader("Content-Type", "application/json");
-                    request.AddHeader("x-rpc-app_id", "cie2gjc0sg00");
-                    request.AddHeader("x-rpc-device_id", "c0570f46-ced6-4a17-1e51-0682e1c2162a");
+                    request.AddHeader("x-rpc-app_id", "bll8iq97cem8");
+                    request.AddHeader("x-rpc-device_id", deviceId);
                     request.AddJsonBody(new { ticket });
 
                     var response = await client.ExecuteAsync(request, cancellationToken);
