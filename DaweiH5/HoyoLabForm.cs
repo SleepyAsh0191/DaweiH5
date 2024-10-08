@@ -12,13 +12,22 @@ namespace DaweiH5
 {
     public partial class HoyoLabForm : Form
     {
+
+        private Timer timer;
+
         public HoyoLabForm()
         {
             InitializeComponent();
-            InitializeWebView();
+            LoadWebViewAndStartCookieCheck();
         }
 
-        private async void InitializeWebView()
+        private async void LoadWebViewAndStartCookieCheck()
+        {
+            await InitializeWebView();
+            StartCookieCheck();
+        }
+
+        private async Task InitializeWebView()
         {
             await hoyoverseWebview.EnsureCoreWebView2Async();
             await ClearCookies();
@@ -35,7 +44,15 @@ namespace DaweiH5
             }
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+        private void StartCookieCheck()
+        {
+            timer = new Timer();
+            timer.Interval = 1000; // 1 second interval
+            timer.Tick += (sender, e) => getCookie();
+            timer.Start();
+        }
+
+        private async void getCookie()
         {
             var cookieManager = hoyoverseWebview.CoreWebView2.CookieManager;
             var cookies = await cookieManager.GetCookiesAsync("https://account.hoyoverse.com");
@@ -43,10 +60,26 @@ namespace DaweiH5
 
             foreach (var cookie in cookies)
             {
-                cookieString.AppendLine($"{cookie.Name}: {cookie.Value}");
+                cookieString.Append($"{cookie.Name}={cookie.Value};");
             }
 
-            MessageBox.Show(cookieString.ToString());
+            string cookieData = cookieString.ToString();
+            if (cookieData.Contains("ltuid"))
+            {
+                ((Form1)Owner).textBox1.ResetText();
+                ((Form1)Owner).textBox1.AppendText(cookieData);
+                this.Close();
+            }
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (timer != null)
+            {
+                timer.Stop();
+                timer.Dispose();
+            }
+            base.OnFormClosing(e);
         }
     }
 }
